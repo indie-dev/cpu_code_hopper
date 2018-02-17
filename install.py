@@ -2,5 +2,5 @@ import sys
 import os
 
 with open("REQUIREMENTS.txt", "r") as r:
-  os.system("pip install ")
- 
+  for line in r.readlines():
+    os.system("pip install "+line)
