@@ -1,9 +1,16 @@
 from cpu import CPU
 import time
-to = set()
-cpu = CPU()
-file = open("test.py", "r")
-code = ""
-for line in file.read():
-	code += line
-cpu.run_code(code)
+
+#Use a random CPU
+with open("test.py", "r") as r:
+	lines = r.readlines()
+	for line in lines:
+		cpu = CPU()
+		cpu.run_code(line)
+
+#Use a dedicated CPU
+with open("test.py", "r") as r:
+	lines = r.readlines()
+	for line in lines:
+		cpu = CPU(1)
+		cpu.run_code(line)
